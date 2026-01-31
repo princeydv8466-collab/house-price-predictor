@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Price Predictor</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container">
+    <span class="navbar-brand">🏠 House Price Predictor</span>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 card p-4 shadow">
+      <h4 class="mb-3">Enter House Details</h4>
+
+      <form method="POST">
+        <input class="form-control mb-3" name="area" placeholder="Area (sqft)" required>
+        <input class="form-control mb-3" name="bedrooms" placeholder="Bedrooms" required>
+        <input class="form-control mb-3" name="bathrooms" placeholder="Bathrooms" required>
+
+        <button class="btn btn-primary w-100">Predict Price</button>
+      </form>
+
+      {% if price %}
+        <div class="alert alert-success mt-4">
+          Estimated Price: ₹ {{ price | round(2) }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
